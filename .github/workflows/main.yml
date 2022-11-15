@@ -9,8 +9,8 @@ on:
 jobs:
   Nox:
     runs-on: ubuntu-latest
-
     steps:
+      - uses: actions/checkout@v1
       - name: Setup Nox
         run: python3 -m pip install nox
       - name: Lint
