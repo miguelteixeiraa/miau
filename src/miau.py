@@ -1,5 +1,5 @@
 import argparse
-from commands.ActionInit import ActionInit
+from commands.action_init import ActionInit
 
 parser = argparse.ArgumentParser(
     prog="Miau",
