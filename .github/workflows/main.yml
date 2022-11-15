@@ -19,7 +19,7 @@ jobs:
 
       - name: Setup Nox
         run: pip install -r requirements.txt
-      - name: Tests
-        run: nox -s tests
       - name: Lint
         run: nox -s lint
+      - name: Tests
+        run: nox -s tests
