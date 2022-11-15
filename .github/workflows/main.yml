@@ -12,9 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Setup Nox
-        run: python3 -m pip install nox
-      - name: Lint
-        run: nox -s lint
+        run: pip3 install -r requirements.txt
       - name: Tests
         run: nox -s tests
-
+      - name: Lint
+        run: nox -s lint
