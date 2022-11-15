@@ -8,6 +8,7 @@ Typical usage example:
 from functools import reduce
 from os import chdir, listdir, path
 from typing import Callable
+import json
 
 
 def get_themes() -> dict[str, str]:
@@ -36,3 +37,41 @@ def get_themes() -> dict[str, str]:
     )
 
     return reduce(map_themes, themes, {})
+
+
+#
+
+
+def get_miaurc() -> dict[str, str]:
+    """Get configurations from .miaurc
+
+    Args:
+      no-args
+
+    Returns:
+      a dictionary containing the content of .miaurc
+    """
+    dir_path = path.dirname(path.realpath(__file__))
+    chdir(dir_path)
+    chdir("../../")
+
+    miaurc = {}
+    try:
+        with open("./.miaurc", encoding="utf-8") as file:
+            miaurc = json.load(file)
+            file.close()
+
+    except FileNotFoundError as file_not_found:
+        raise Exception(
+            "Internal error: .miaurc file not found " + str(file_not_found)
+        ) from file_not_found
+    except Exception as exp:
+        raise Exception(
+            "Internal error: .miaurc file is corrupted " + str(exp)
+        ) from exp
+    #
+
+    return miaurc
+
+
+#
