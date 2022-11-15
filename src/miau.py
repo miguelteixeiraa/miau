@@ -3,7 +3,7 @@ from commands.action_init import ActionInit
 
 parser = argparse.ArgumentParser(
     prog="Miau",
-    description="C++ Project Manager",
+    description="",
     epilog="The Manager for the rest of us",
 )
 
