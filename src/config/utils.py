@@ -57,7 +57,7 @@ def get_miaurc() -> dict[str, str]:
 
     miaurc = {}
     try:
-        with open("./.miaurc", encoding="utf-8") as file:
+        with open("./.miaurc", encoding="utf8") as file:
             miaurc = json.load(file)
             file.close()
 
